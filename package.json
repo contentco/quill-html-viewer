@@ -22,20 +22,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentco/quill-emoji.git"
+    "url": "git+https://github.com/contentco/quill-html-viewer"
   },
   "keywords": [
     "content",
-    "emoji",
     "quill",
     "editor"
   ],
   "author": "contentco",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/contentco/quill-emoji/issues"
+    "url": "https://github.com/contentco/quill-html-viewer/issues"
   },
-  "homepage": "https://github.com/contentco/quill-emoji#readme",
+  "homepage": "https://github.com/contentco/quill-html-viewer#readme",
   "dependencies": {
     "babel": "^6.23.0",
     "preact": "^7.2.1",

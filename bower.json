@@ -9,11 +9,10 @@
   "license": "MIT",
   "keywords": [
     "content",
-    "emoji",
     "quill",
     "editor"
   ],
-  "homepage": "https://github.com/contentco/quill-emoji",
+  "homepage": "https://github.com/contentco/quill-html-viewer",
   "ignore": [
     "**/.*",
     "node_modules",
