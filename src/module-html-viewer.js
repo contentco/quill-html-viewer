@@ -1,4 +1,4 @@
-export class HtmlViwer {
+class HtmlViwer {
     constructor(quill){
         this.quill = quill;
         this.toolbar = quill.getModule('toolbar');
@@ -39,16 +39,20 @@ export class HtmlViwer {
         }
 
         customButton.parentNode.style.visibility = "visible";
+
+        var htmlEditor = document.querySelector('.ql-custom');
+       
+        if (!htmlEditor) {
+            htmlEditor = quill.addContainer('ql-custom');
+        }
         
-        let htmlEditor = quill.addContainer('ql-custom');
         htmlEditor.appendChild(txtArea);
         var myEditor = document.querySelector('#quill-editor');
-        
         if (txtArea.style.display === 'none') {
             let html = quill.root.innerHTML;
             txtArea.value = html;
 
-          }
+        }
 
         quill.on('text-change', (delta, oldDelta, source) => {
           let html = quill.root.innerHTML;
