@@ -2,17 +2,20 @@ class HtmlViwer {
     constructor(quill){
         this.quill = quill;
         this.toolbar = quill.getModule('toolbar');
+
+        let svg = '<svg viewbox="0 0 18 18"><polyline class="ql-even ql-stroke" points="5 7 3 9 5 11"></polyline><polyline class="ql-even ql-stroke" points="13 7 15 9 13 11"></polyline><line class="ql-stroke" x1="10" x2="8" y1="5" y2="13"></line></svg>';
+
         if (typeof this.toolbar != 'undefined')
             this.toolbar.addHandler('htmlViewer', this.htmlViewer);
 
         var htmlViewerBtns = document.getElementsByClassName('ql-htmlViewer');
         if (htmlViewerBtns) {
             [].slice.call( htmlViewerBtns ).forEach(function ( htmlViewerBtn ) {
-                htmlViewerBtn.innerHTML = '[Source]';
+                htmlViewerBtn.innerHTML = svg;
                 htmlViewerBtn.id="ql-source-btn";
-                htmlViewerBtn.style.fontWeight = 'bold';
-                htmlViewerBtn.style.width = "80px";
-                htmlViewerBtn.parentNode.style.cssText = "float:right;";
+                // htmlViewerBtn.style.fontWeight = 'bold';
+                // htmlViewerBtn.style.width = "80px";
+                // htmlViewerBtn.parentNode.style.cssText = "float:right;";
             });
         };
     }
@@ -30,8 +33,6 @@ class HtmlViwer {
         }
         
         let customButton = document.getElementById('ql-source-btn');
-        customButton.innerHTML = '[Visual]';
-
         var myElements = document.querySelectorAll(".ql-formats");
  
         for (var i = 0; i < myElements.length; i++) {
@@ -62,7 +63,6 @@ class HtmlViwer {
         if (txtArea.style.display === '') {
             let html = txtArea.value;
             this.quill.pasteHTML(html);
-            customButton.innerHTML = '[Source]';
             for (var i = 0; i < myElements.length; i++) {
                 myElements[i].style.visibility = 'visible';
             }
