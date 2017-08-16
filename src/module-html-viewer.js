@@ -13,9 +13,6 @@ class HtmlViwer {
             [].slice.call( htmlViewerBtns ).forEach(function ( htmlViewerBtn ) {
                 htmlViewerBtn.innerHTML = svg;
                 htmlViewerBtn.id="ql-source-btn";
-                // htmlViewerBtn.style.fontWeight = 'bold';
-                // htmlViewerBtn.style.width = "80px";
-                // htmlViewerBtn.parentNode.style.cssText = "float:right;";
             });
         };
     }
@@ -35,9 +32,9 @@ class HtmlViwer {
         let customButton = document.getElementById('ql-source-btn');
         var myElements = document.querySelectorAll(".ql-formats");
  
-        for (var i = 0; i < myElements.length; i++) {
-            myElements[i].style.visibility = 'hidden';
-        }
+        // for (var i = 0; i < myElements.length; i++) {
+        //     myElements[i].style.visibility = 'hidden';
+        // }
 
         customButton.parentNode.style.visibility = "visible";
 
