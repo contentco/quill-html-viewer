@@ -12,21 +12,20 @@ class HtmlViwer {
         if (htmlViewerBtns) {
             [].slice.call( htmlViewerBtns ).forEach(function ( htmlViewerBtn ) {
                 htmlViewerBtn.innerHTML = svg;
-                htmlViewerBtn.id="ql-source-btn";
+                htmlViewerBtn.id = "ql-source-btn";
             });
         };
     }
 
     htmlViewer() {
         let quill = this.quill;
-        let sourceView = document.getElementById('sourceView');
+        let sourceView = document.getElementsByClassName('ql-source-view')[0];
         if (!sourceView) {
             var txtArea = document.createElement('textarea');
-            txtArea.style.cssText = "width: 100%;margin: 0px;background: #eee;box-sizing: border-box;color: #000;font-size: 15px;outline: none;padding: 20px;line-height: 24px;font-family: Consolas, Menlo, Monaco, &quot;Courier New&quot;, monospace;position: absolute;top: 0;bottom: 0;border: none;display:none;overflow-y:scroll;";
-            txtArea.id = 'sourceView';
-        }
-        else{
-            txtArea = document.getElementById('sourceView');
+            txtArea.style.cssText = "display:none;";
+            txtArea.className = 'ql-source-view';
+        } else {
+            txtArea = document.getElementsByClassName('ql-source-view')[0];
         }
         
         let customButton = document.getElementById('ql-source-btn');
@@ -49,7 +48,6 @@ class HtmlViwer {
         if (txtArea.style.display === 'none') {
             let html = quill.root.innerHTML;
             txtArea.value = html;
-
         }
 
         quill.on('text-change', (delta, oldDelta, source) => {
